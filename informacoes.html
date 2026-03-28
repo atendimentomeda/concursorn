@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<!-- Mirrored from concursorn.site/informacoes.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Mar 2026 11:59:23 GMT -->
+<head>
+<meta charset="UTF-8">
+<title>Informações da Inscrição</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.tailwindcss.com/"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+body { margin:0; font-family:Arial; }
+
+.linha-brilho {
+  height:2px;
+  background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0.4), rgba(0,0,0,0.1));
+}
+
+.steps-container {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:relative;
+}
+
+.step {
+  text-align:center;
+  width:100%;
+  color:#9ca3af;
+  z-index:2;
+}
+
+.step.active { color:#2563eb; }
+
+.circle {
+  width:56px;
+  height:56px;
+  background:#e5e7eb;
+  border-radius:9999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 8px;
+  border:4px solid white;
+}
+
+.step.active .circle {
+  background:#2563eb;
+  color:white;
+}
+
+.desktop-line {
+  position:absolute;
+  top:28px;
+  left:0;
+  width:100%;
+  height:4px;
+  z-index:1;
+}
+
+.form-mobile { display:none; }
+.form-desktop { display:block; }
+
+@media (max-width:600px){
+  .steps-container {
+    flex-direction:column;
+    gap:25px;
+  }
+
+  .desktop-line { display:none; }
+
+  .form-desktop { display:none; }
+  .form-mobile { display:block; width:100%; }
+}
+</style>
+</head>
+
+<body class="bg-gray-100">
+
+<header class="bg-white shadow-sm">
+
+  <div class="max-w-5xl mx-auto flex justify-between items-center px-4 py-4">
+    <img src="logo4.png" class="h-16">
+    <button class="bg-blue-600 text-white px-4 py-2 text-sm rounded">SAIR</button>
+  </div>
+
+  <div class="linha-brilho"></div>
+
+  <div class="flex justify-center py-4">
+    <div class="bg-gray-100 px-10 py-3 text-sm text-gray-700 rounded text-center">
+      SECRETARIA DE ESTADO DA ADMINISTRAÇÃO DO RIO GRANDE DO NORTE/RN
+    </div>
+  </div>
+
+<!-- 🔥 ADICIONE ISSO AQUI -->
+  <div class="max-w-5xl mx-auto px-4 py-3 text-sm text-gray-600 flex items-center gap-3">
+    <img src="logo5.png" class="h-12">
+    <span><strong>Edital :</strong> 001/2026</span>
+  </div>
+
+</header>
+
+<!-- STEPS -->
+<div class="bg-white py-10 shadow-sm border-t">
+<div class="max-w-5xl mx-auto px-4">
+
+<h2 class="text-xl font-semibold mb-8">FORMULÁRIO DE INSCRIÇÃO</h2>
+
+<div class="steps-container">
+
+<div class="desktop-line bg-gray-300"></div>
+<div class="desktop-line bg-blue-600" style="width:75%"></div>
+
+<div class="step text-green-600">
+  <div class="circle bg-green-600 text-white"><i data-lucide="check"></i></div>
+  <span>Dados pessoais</span>
+</div>
+
+<div class="step text-green-600">
+  <div class="circle bg-green-600 text-white"><i data-lucide="check"></i></div>
+  <span>Contato</span>
+</div>
+
+<div class="step text-green-600">
+  <div class="circle bg-green-600 text-white"><i data-lucide="check"></i></div>
+  <span>Endereço</span>
+</div>
+
+<div class="step active">
+  <div class="circle"><i data-lucide="briefcase"></i></div>
+  <span>Informações</span>
+
+  <!-- MOBILE -->
+  <div class="form-mobile mt-5">
+
+    <form id="formMobileInfo" class="space-y-4">
+
+      <select id="blocoMobile" class="w-full border p-2 rounded">
+        <option value="">Selecione bloco</option>
+        <option value="1">BLOCO 1 - ENSINO MÉDIO DETRAN + IPERN/RN</option>
+        <option value="2">BLOCO 2 - ENSINO SUPERIOR CEASA/RN + DETRAN + IPERN/RN</option>
+        <option value="3">BLOCO 3 - ENSINO SUPERIOR CEASA/RN + IPERN/RN</option>
+      </select>
+
+      <select id="cargoMobile" class="w-full border p-2 rounded"></select>
+
+      <div id="msgMobile" class="hidden text-sm bg-blue-50 p-2 rounded"></div>
+
+      <select id="localMobile" class="w-full border p-2 rounded">
+        <option value="">Local de prova</option>
+        <option>NATAL/RN</option>
+        <option>MOSSORÓ/RN</option>
+        <option>CAICÓ/RN</option>
+      </select>
+
+<!-- CONDIÇÕES -->
+<div>
+  <label>Condições especiais *</label>
+  <select id="condicao" class="w-full border p-2 rounded" required>
+    <option value="">Selecione</option>
+    <option>NENHUMA</option>
+    <option>ACESSO A CADEIRA DE RODAS</option>
+    <option>AMAMENTANDO</option>
+    <option>LEDOR/TRANSCRITOR</option>
+    <option>PROVA AMPLIADA</option>
+    <option>PROVAS COM FISCAL DE LIBRAS</option>
+    <option>PROVA EM BRAILE</option>
+  </select>
+</div>
+
+<!-- DEFICIÊNCIA -->
+<div>
+  <label>Possui deficiência? *</label>
+  <select id="deficiencia" class="w-full border p-2 rounded" required>
+    <option value="">Selecione</option>
+    <option>SIM</option>
+    <option>NÃO</option>
+  </select>
+</div>
+
+      <input type="password" id="senhaMobile" class="w-full border p-2 rounded" placeholder="Senha">
+      <input type="password" id="confirmarSenhaMobile" class="w-full border p-2 rounded" placeholder="Confirmar senha">
+
+      <span id="erroSenhaMobile" class="text-red-500 text-xs hidden">Senhas não coincidem</span>
+
+      <button class="bg-blue-600 text-white py-3 rounded w-full">Próximo</button>
+
+    </form>
+
+  </div>
+
+</div>
+
+<div class="step"><div class="circle"><i data-lucide="check"></i></div><span>Confirmação</span></div>
+
+</div>
+</div>
+</div>
+
+<!-- DESKTOP -->
+<div class="form-desktop bg-white shadow mt-6">
+<div class="max-w-4xl mx-auto p-8">
+
+<form id="formInfo" class="space-y-4">
+
+<select id="bloco" class="w-full border p-3 rounded">
+  <option value="">Selecione bloco</option>
+  <option value="1">BLOCO 1 - ENSINO MÉDIO DETRAN + IPERN/RN</option>
+  <option value="2">BLOCO 2 - ENSINO SUPERIOR CEASA/RN + DETRAN + IPERN/RN</option>
+  <option value="3">BLOCO 3 - ENSINO SUPERIOR CEASA/RN + IPERN/RN</option>
+</select>
+
+<select id="cargo" class="w-full border p-3 rounded"></select>
+
+<div id="mensagemBox" class="hidden bg-blue-50 p-3 rounded text-sm"></div>
+
+<select id="localProva" class="w-full border p-3 rounded">
+  <option value="">Local de prova</option>
+  <option>NATAL/RN</option>
+  <option>MOSSORÓ/RN</option>
+  <option>CAICÓ/RN</option>
+</select>
+
+<!-- CONDIÇÕES -->
+<div>
+  <label>Condições especiais *</label>
+  <select id="condicao" class="w-full border p-2 rounded" required>
+    <option value="">Selecione</option>
+    <option>NENHUMA</option>
+    <option>ACESSO A CADEIRA DE RODAS</option>
+    <option>AMAMENTANDO</option>
+    <option>LEDOR/TRANSCRITOR</option>
+    <option>PROVA AMPLIADA</option>
+    <option>PROVAS COM FISCAL DE LIBRAS</option>
+    <option>PROVA EM BRAILE</option>
+  </select>
+</div>
+
+<!-- DEFICIÊNCIA -->
+<div>
+  <label>Possui deficiência? *</label>
+  <select id="deficiencia" class="w-full border p-2 rounded" required>
+    <option value="">Selecione</option>
+    <option>SIM</option>
+    <option>NÃO</option>
+  </select>
+</div>
+
+<div class="grid grid-cols-2 gap-4">
+  <input type="password" id="senha" class="border p-3 rounded" placeholder="Senha">
+  <input type="password" id="confirmarSenha" class="border p-3 rounded" placeholder="Confirmar senha">
+</div>
+
+<span id="erroSenha" class="text-red-500 text-xs hidden">Senhas não coincidem</span>
+
+<button class="bg-blue-600 text-white py-3 px-6 rounded w-full">
+  Próximo
+</button>
+
+</form>
+
+</div>
+</div>
+
+<script>
+lucide.createIcons();
+
+/* ATUALIZA CARGOS */
+function atualizarCargo(valor){
+
+  let html = `<option value="">Selecione o cargo</option>`;
+  let mensagem = "";
+
+  if (valor == "1") {
+    html += `
+      <option>301 - ASSISTENTE DE TRÂNSITO - ADMINISTRAÇÃO</option>
+      <option>302 - ASSISTENTE DE TRÂNSITO - EDIFICAÇÕES</option>
+      <option>303 - ASSISTENTE DE TRÂNSITO - ELETRICISTA PROGRAMADOR</option>
+      <option>304 - ASSISTENTE DE TRÂNSITO - INSPEÇÃO VEICULAR</option>
+      <option>305 - ASSISTENTE DE TRÂNSITO - AGENTE ADMINISTRATIVO PREVIDENCIÁRIO</option>
+    `;
+    mensagem = "🔵 Ao se inscrever você também concorre ao IPERN 305.";
+  }
+
+  if (valor == "2") {
+    html += `
+      <option>402 - ANALISTA DE TRÂNSITO - ADMINISTRAÇÃO</option>
+      <option>403 - ANALISTA DE TRÂNSITO - BANCO DE DADOS</option>
+      <option>404 - ANALISTA DE TRÂNSITO - REDES</option>
+      <option>405 - ANALISTA DE TRÂNSITO - SISTEMAS</option>
+      <option>406 - ANALISTA DE TRÂNSITO - ARQUITETURA</option>
+      <option>407 - ANALISTA DE TRÂNSITO - CONTABILIDADE</option>
+      <option>408 - ANALISTA DE TRÂNSITO - DIREITO</option>
+      <option>409 - ANALISTA DE TRÂNSITO - ECONOMIA</option>
+      <option>410 - ANALISTA DE TRÂNSITO - ENG. CIVIL</option>
+      <option>411 - ANALISTA DE TRÂNSITO - ENG. ELÉTRICA</option>
+      <option>412 - ANALISTA DE TRÂNSITO - ESTATÍSTICA</option>
+      <option>413 - ANALISTA DE TRÂNSITO - PSICOLOGIA</option>
+      <option>414 - ANALISTA DE TRÂNSITO - PEDAGOGIA</option>
+    `;
+    mensagem = "🔵 Você concorre a múltiplos cargos vinculados.";
+  }
+
+  if (valor == "3") {
+    html += `<option>415/401 - ASS. TÉC. PREV. / TÉC. EM ABAST.</option>`;
+    mensagem = "🔵 Concorrência conjunta IPERN + CEASA.";
+  }
+
+  cargo.innerHTML = html;
+  cargoMobile.innerHTML = html;
+
+  mensagemBox.innerHTML = mensagem;
+  mensagemBox.classList.remove("hidden");
+
+  msgMobile.innerHTML = mensagem;
+  msgMobile.classList.remove("hidden");
+}
+
+/* EVENTOS */
+bloco.addEventListener("change", ()=>{
+  blocoMobile.value = bloco.value;
+  atualizarCargo(bloco.value);
+});
+
+blocoMobile.addEventListener("change", ()=>{
+  bloco.value = blocoMobile.value;
+  atualizarCargo(blocoMobile.value);
+});
+
+cargo.addEventListener("change", ()=>{
+  cargoMobile.value = cargo.value;
+});
+
+cargoMobile.addEventListener("change", ()=>{
+  cargo.value = cargoMobile.value;
+});
+
+/* 🔥 SALVAR DADOS CORRETAMENTE */
+function salvarDados(blocoVal, cargoVal){
+
+  localStorage.setItem("bloco", blocoVal);
+  localStorage.setItem("cargo", cargoVal);
+
+}
+
+/* SUBMIT DESKTOP */
+formInfo.addEventListener("submit", e=>{
+  e.preventDefault();
+
+  if(!bloco.value || !cargo.value){
+    alert("Selecione bloco e cargo");
+    return;
+  }
+
+  salvarDados(bloco.value, cargo.value);
+
+  window.location.href = "confirmacao.html";
+});
+
+/* SUBMIT MOBILE */
+formInfo.addEventListener("submit", e=>{
+  e.preventDefault();
+
+  localStorage.setItem("bloco", bloco.value);
+  localStorage.setItem("cargo", cargo.value);
+
+  window.location.href = "confirmacao.html";
+});
+
+formMobileInfo.addEventListener("submit", e=>{
+  e.preventDefault();
+
+  localStorage.setItem("bloco", blocoMobile.value);
+  localStorage.setItem("cargo", cargoMobile.value);
+
+  window.location.href = "confirmacao.html";
+});
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"6be5be7d404c4fa3b3260fb0379d9fa9","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'},{'ap':'cpsh-oh'},{'server':'p3plzcpnl508142'},{'dcenter':'p3'},{'cp_id':'10897761'},{'cp_cl':'8'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='../img1.wsimg.com/signals/js/clients/scc-c2/scc-c2.min.js'></script>
+<!-- Mirrored from concursorn.site/informacoes.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Mar 2026 11:59:23 GMT -->
+</html>

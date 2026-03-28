@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<!-- Mirrored from concursorn.site/desafio.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Mar 2026 11:59:20 GMT -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verificando...</title>
+
+<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18028304692"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-18028304692'); </script>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(135deg, #2196f3, #0d47a1);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* CONTAINER */
+.container {
+  background: white;
+  color: #333;
+  padding: 30px;
+  border-radius: 15px;
+  width: 320px;
+  max-width: calc(100% - 30px); /* evita cortar no mobile */
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  box-sizing: border-box;
+}
+
+.loader {
+  width: 100%;
+  height: 8px;
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.bar {
+  height: 100%;
+  width: 0%;
+  background: #2196f3;
+  transition: width 0.3s;
+}
+
+button {
+  margin: 8px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #2196f3;
+  color: white;
+  cursor: pointer;
+  width: 80px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+
+  body {
+    padding: 15px;
+  }
+
+  .container {
+    width: 100%;
+    padding: 25px 15px;
+  }
+
+  button {
+    width: calc(100% - 20px); /* centraliza e ocupa bem */
+    margin: 8px auto;
+    display: block;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>🔍 Verificando acesso...</h2>
+
+  <div class="loader">
+    <div class="bar" id="bar"></div>
+  </div>
+
+  <div id="step1">Analisando seu navegador...</div>
+
+  <!-- QUIZ DINÂMICO -->
+  <div id="quiz" class="hidden"></div>
+
+  <div id="step2" class="hidden">
+    <p>Confirmando atividade humana...</p>
+  </div>
+
+</div>
+
+<script>
+let tempoInicio = Date.now();
+
+// PERGUNTAS
+const perguntas = [
+  { pergunta: "Qual número é PAR?", opcoes: [3, 8, 7], correta: 8 },
+  { pergunta: "Clique no maior número:", opcoes: [2, 9, 5], correta: 9 },
+  { pergunta: "Qual número é menor?", opcoes: [6, 1, 4], correta: 1 },
+  { pergunta: "Qual é múltiplo de 2?", opcoes: [5, 12, 9], correta: 12 },
+  { pergunta: "Qual número é ímpar?", opcoes: [4, 6, 7], correta: 7 },
+  { pergunta: "Qual é maior que 10?", opcoes: [8, 11, 9], correta: 11 },
+  { pergunta: "Qual número é divisível por 3?", opcoes: [10, 12, 7], correta: 12 },
+  { pergunta: "Qual número é negativo?", opcoes: [-2, 3, 5], correta: -2 },
+  { pergunta: "Qual número é zero?", opcoes: [0, 2, 4], correta: 0 },
+  { pergunta: "Qual número termina com 5?", opcoes: [15, 12, 18], correta: 15 }
+];
+
+// EMBARALHAR
+function embaralhar(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
+
+const quizDiv = document.getElementById("quiz");
+const bar = document.getElementById("bar");
+
+// LOADING
+let progresso = 0;
+
+const interval = setInterval(() => {
+  progresso += Math.random() * 15;
+
+  if (progresso >= 100) {
+    progresso = 100;
+    clearInterval(interval);
+
+    document.getElementById("step1").classList.add("hidden");
+    quizDiv.classList.remove("hidden");
+
+    const perguntaEscolhida = perguntas[Math.floor(Math.random() * perguntas.length)];
+
+    quizDiv.innerHTML = "";
+
+    const perguntaHTML = document.createElement("p");
+    perguntaHTML.innerText = perguntaEscolhida.pergunta;
+    quizDiv.appendChild(perguntaHTML);
+
+    const opcoes = embaralhar(perguntaEscolhida.opcoes);
+
+    opcoes.forEach(num => {
+      const btn = document.createElement("button");
+      btn.innerText = num;
+      btn.onclick = () => responder(num, perguntaEscolhida);
+      quizDiv.appendChild(btn);
+    });
+  }
+
+  bar.style.width = progresso + "%";
+}, 400);
+
+// RESPOSTA
+function responder(num, perguntaEscolhida) {
+  const tempo = Date.now() - tempoInicio;
+
+  if (tempo < 3000) {
+    alert("Verificação falhou. Recarregue a página.");
+    return;
+  }
+
+  if (num === perguntaEscolhida.correta) {
+    quizDiv.classList.add("hidden");
+    document.getElementById("step2").classList.remove("hidden");
+
+    setTimeout(() => {
+      window.location.href = "dadospessoais.html";
+    }, 2000);
+
+  } else {
+    window.location.href = "https://www.grancursosonline.com.br/";
+  }
+}
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"6be5be7d404c4fa3b3260fb0379d9fa9","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'},{'ap':'cpsh-oh'},{'server':'p3plzcpnl508142'},{'dcenter':'p3'},{'cp_id':'10897761'},{'cp_cl':'8'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='../img1.wsimg.com/signals/js/clients/scc-c2/scc-c2.min.js'></script>
+<!-- Mirrored from concursorn.site/desafio.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Mar 2026 11:59:21 GMT -->
+</html>

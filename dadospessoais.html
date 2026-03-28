@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<!-- Mirrored from concursorn.site/dadospessoais.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Mar 2026 11:59:21 GMT -->
+<head>
+<meta charset="UTF-8">
+<title>Formulário de Inscrição</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.tailwindcss.com/"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+.linha-brilho {
+  height: 2px;
+  background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0.4), rgba(0,0,0,0.1));
+}
+
+/* STEPS */
+.steps-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.step {
+  text-align: center;
+  width: 100%;
+  color: #9ca3af;
+  position: relative;
+  z-index: 2;
+}
+
+.step.active {
+  color: #2563eb;
+}
+
+.circle {
+  width: 56px;
+  height: 56px;
+  background: #e5e7eb;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 8px;
+  border: 4px solid white;
+}
+
+.step.active .circle {
+  background: #2563eb;
+  color: white;
+}
+
+.desktop-line {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  z-index: 1;
+}
+
+.form-mobile { display: none; }
+.form-desktop { display: block; }
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+  .steps-container {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .desktop-line {
+    display: none;
+  }
+
+  .form-desktop {
+    display: none;
+  }
+
+  .form-mobile {
+    display: block;
+    width: 100%;
+  }
+
+}
+</style>
+</head>
+
+<body class="bg-gray-100">
+
+<!-- HEADER -->
+<header class="bg-white shadow-sm">
+
+  <div class="max-w-5xl mx-auto flex justify-between items-center px-4 py-4">
+    <img src="logo4.png" class="h-16">
+    <button class="bg-blue-600 text-white px-4 py-2 text-sm rounded">SAIR</button>
+  </div>
+
+  <div class="linha-brilho"></div>
+
+  <div class="flex justify-center py-4">
+    <div class="bg-gray-100 px-10 py-3 text-sm text-gray-700 rounded text-center">
+      SECRETARIA DE ESTADO DA ADMINISTRAÇÃO DO RIO GRANDE DO NORTE/RN
+    </div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-4 py-3 flex items-center gap-3">
+    <img src="logo5.png" class="h-12">
+    <span><strong>Edital:</strong> 001/2026</span>
+  </div>
+
+</header>
+
+<!-- STEPS -->
+<div class="bg-white py-10 shadow-sm border-t">
+
+  <div class="max-w-5xl mx-auto px-4">
+
+    <h2 class="text-xl font-semibold mb-8">FORMULÁRIO DE INSCRIÇÃO</h2>
+
+    <div class="steps-container">
+
+      <div class="desktop-line bg-gray-300"></div>
+      <div class="desktop-line bg-blue-600" id="progressBar" style="width:0%"></div>
+
+      <!-- STEP 1 -->
+      <div class="step active">
+        <div class="circle"><i data-lucide="user"></i></div>
+        <span>Dados pessoais</span>
+
+        <!-- MOBILE FORM -->
+        <div class="form-mobile mt-5">
+
+  <form id="formMobile" class="space-y-4">
+
+    <div>
+      <label class="text-sm">CPF *</label>
+      <input id="cpfMobile" class="w-full border p-2 rounded" required>
+      <span id="erroCpfMobile" class="text-red-500 text-xs hidden">CPF inválido</span>
+    </div>
+
+    <div>
+      <label class="text-sm">Nome completo *</label>
+      <input id="nomeMobile" class="w-full border p-2 rounded" required>
+    </div>
+
+    <div>
+      <label class="text-sm">Utiliza nome social? *</label>
+      <select id="nomeSocialMobile" class="w-full border p-2 rounded">
+        <option value="">Selecione</option>
+        <option>Não</option>
+        <option>Sim</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="text-sm">Data de nascimento *</label>
+      <input id="nascimentoMobile" type="date" class="w-full border p-2 rounded" required>
+    </div>
+
+    <div>
+      <label class="text-sm">Sexo *</label>
+      <select id="sexoMobile" class="w-full border p-2 rounded">
+        <option value="">Selecione</option>
+        <option>Masculino</option>
+        <option>Feminino</option>
+        <option>Outro</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="text-sm">RG *</label>
+      <input id="rgMobile" class="w-full border p-2 rounded" required>
+    </div>
+
+    <div>
+      <label class="text-sm">Órgão emissor *</label>
+      <input id="orgaoMobile" class="w-full border p-2 rounded" required>
+    </div>
+
+    <div>
+      <label class="text-sm">Nome da mãe *</label>
+      <input id="maeMobile" class="w-full border p-2 rounded" required>
+    </div>
+
+    <button class="bg-blue-600 text-white py-3 rounded w-full">
+      Próximo
+    </button>
+
+  </form>
+
+</div>
+      </div>
+
+      <!-- OUTROS -->
+      <div class="step"><div class="circle"><i data-lucide="phone"></i></div><span>Contato</span></div>
+      <div class="step"><div class="circle"><i data-lucide="map-pin"></i></div><span>Endereço</span></div>
+      <div class="step"><div class="circle"><i data-lucide="briefcase"></i></div><span>Informações</span></div>
+      <div class="step"><div class="circle"><i data-lucide="check"></i></div><span>Confirmação</span></div>
+
+    </div>
+  </div>
+</div>
+
+<!-- DESKTOP FORM -->
+<div class="form-desktop bg-white shadow mt-6">
+  <div class="max-w-5xl mx-auto p-8">
+
+    <form id="formDados" class="space-y-4">
+
+      <input id="cpf" class="w-full border p-2 rounded" placeholder="CPF *" required>
+      <span id="erroCpf" class="text-red-500 text-xs hidden">CPF inválido</span>
+
+      <input id="nome" class="w-full border p-2 rounded" placeholder="Nome completo *" required>
+
+      <select id="nomeSocial" class="w-full border p-2 rounded">
+        <option value="">Nome social?</option>
+        <option>Não</option>
+        <option>Sim</option>
+      </select>
+
+      <div class="grid grid-cols-2 gap-4">
+
+  <div>
+    <label class="text-sm">Data de nascimento *</label>
+    <input id="nascimento" type="date" class="w-full border p-2 rounded" required>
+  </div>
+
+  <div>
+    <label class="text-sm">Sexo *</label>
+    <select id="sexo" class="w-full border p-2 rounded" required>
+      <option value="">Selecione</option>
+      <option>Masculino</option>
+      <option>Feminino</option>
+      <option>Outro</option>
+    </select>
+  </div>
+
+</div>
+
+      <div class="grid grid-cols-2 gap-4">
+        <input id="rg" class="border p-2 rounded" placeholder="RG *" required>
+        <input id="orgao" class="border p-2 rounded" placeholder="Órgão emissor *" required>
+      </div>
+
+      <input id="mae" class="w-full border p-2 rounded" placeholder="Nome da mãe *" required>
+
+      <button class="bg-blue-600 text-white py-3 rounded w-full">Próximo</button>
+
+    </form>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="text-center text-xs text-gray-500 mt-10 pb-6">
+  <p>Todos os Direitos Reservados ® 2026</p>
+</footer>
+
+<script>
+lucide.createIcons();
+
+/* ========= FUNÇÕES ========= */
+
+function formatarCPF(valor) {
+  valor = valor.replace(/\D/g, "");
+  valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+  valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+  valor = valor.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+  return valor;
+}
+
+function validarCPF(cpf) {
+  cpf = cpf.replace(/\D/g, '');
+  if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
+
+  let soma = 0;
+  for (let i = 1; i <= 9; i++)
+    soma += parseInt(cpf.substring(i-1, i)) * (11 - i);
+
+  let resto = (soma * 10) % 11;
+  if (resto >= 10) resto = 0;
+  if (resto !== parseInt(cpf.substring(9, 10))) return false;
+
+  soma = 0;
+  for (let i = 1; i <= 10; i++)
+    soma += parseInt(cpf.substring(i-1, i)) * (12 - i);
+
+  resto = (soma * 10) % 11;
+  if (resto >= 10) resto = 0;
+
+  return resto === parseInt(cpf.substring(10, 11));
+}
+
+/* ========= DESKTOP ========= */
+
+const form = document.getElementById("formDados");
+const cpfInput = document.getElementById("cpf");
+
+cpfInput.addEventListener("input", () => {
+  cpfInput.value = formatarCPF(cpfInput.value);
+});
+
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+
+  if (!validarCPF(cpfInput.value)) {
+    erroCpf.classList.remove("hidden");
+    return;
+  }
+
+  localStorage.setItem("cpfCandidato", cpf.value);
+  localStorage.setItem("nomeCandidato", nome.value);
+  localStorage.setItem("nomeSocial", nomeSocial.value);
+  localStorage.setItem("nascimento", nascimento.value);
+  localStorage.setItem("sexo", sexo.value);
+  localStorage.setItem("rg", rg.value);
+  localStorage.setItem("orgao", orgao.value);
+  localStorage.setItem("mae", mae.value);
+
+  window.location.href = "contato.html";
+});
+
+/* ========= MOBILE ========= */
+
+const formMobile = document.getElementById("formMobile");
+const cpfMobile = document.getElementById("cpfMobile");
+
+cpfMobile.addEventListener("input", () => {
+  cpfMobile.value = formatarCPF(cpfMobile.value);
+});
+
+formMobile.addEventListener("submit", function(e){
+  e.preventDefault();
+
+  if (!validarCPF(cpfMobile.value)) {
+    erroCpfMobile.classList.remove("hidden");
+    return;
+  }
+
+  localStorage.setItem("cpfCandidato", cpfMobile.value);
+  localStorage.setItem("nomeCandidato", nomeMobile.value);
+  localStorage.setItem("nomeSocial", nomeSocialMobile.value);
+  localStorage.setItem("nascimento", nascimentoMobile.value);
+  localStorage.setItem("sexo", sexoMobile.value);
+  localStorage.setItem("rg", rgMobile.value);
+  localStorage.setItem("orgao", orgaoMobile.value);
+  localStorage.setItem("mae", maeMobile.value);
+
+  window.location.href = "contato.html";
+});
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"6be5be7d404c4fa3b3260fb0379d9fa9","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'},{'ap':'cpsh-oh'},{'server':'p3plzcpnl508142'},{'dcenter':'p3'},{'cp_id':'10897761'},{'cp_cl':'8'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='../img1.wsimg.com/signals/js/clients/scc-c2/scc-c2.min.js'></script>
+<!-- Mirrored from concursorn.site/dadospessoais.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Mar 2026 11:59:22 GMT -->
+</html>

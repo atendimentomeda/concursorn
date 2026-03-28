@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<!-- Mirrored from concursorn.site/endereco.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Mar 2026 11:59:22 GMT -->
+<head>
+<meta charset="UTF-8">
+<title>Endereço</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.tailwindcss.com/"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+body { margin:0; font-family:Arial; }
+
+.linha-brilho {
+  height:2px;
+  background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0.4), rgba(0,0,0,0.1));
+}
+
+/* STEPS */
+.steps-container {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:relative;
+}
+
+.step {
+  text-align:center;
+  width:100%;
+  color:#9ca3af;
+  z-index:2;
+}
+
+.step.active { color:#2563eb; }
+
+.circle {
+  width:56px;
+  height:56px;
+  background:#e5e7eb;
+  border-radius:9999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 8px;
+  border:4px solid white;
+}
+
+.step.active .circle {
+  background:#2563eb;
+  color:white;
+}
+
+.desktop-line {
+  position:absolute;
+  top:28px;
+  left:0;
+  width:100%;
+  height:4px;
+  z-index:1;
+}
+
+/* MOBILE vs DESKTOP */
+.form-mobile { display:none; }
+.form-desktop { display:block; }
+
+@media (max-width:600px){
+
+  .steps-container {
+    flex-direction:column;
+    gap:25px;
+  }
+
+  .desktop-line { display:none; }
+
+  .form-desktop { display:none; }
+  .form-mobile { display:block; width:100%; }
+}
+</style>
+</head>
+
+<body class="bg-gray-100">
+
+<!-- HEADER -->
+<header class="bg-white shadow-sm">
+
+  <div class="max-w-5xl mx-auto flex justify-between items-center px-4 py-4">
+    <img src="logo4.png" class="h-16">
+    <button class="bg-blue-600 text-white px-4 py-2 text-sm rounded">SAIR</button>
+  </div>
+
+  <div class="linha-brilho"></div>
+
+  <div class="flex justify-center py-4">
+    <div class="bg-gray-100 px-10 py-3 text-sm text-gray-700 rounded text-center">
+      SECRETARIA DE ESTADO DA ADMINISTRAÇÃO DO RIO GRANDE DO NORTE/RN
+    </div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-4 py-3 flex items-center gap-3">
+    <img src="logo5.png" class="h-12">
+    <span><strong>Edital:</strong> 001/2026</span>
+  </div>
+
+</header>
+
+<!-- STEPS -->
+<div class="bg-white py-10 shadow-sm border-t">
+
+<div class="max-w-5xl mx-auto px-4">
+
+<h2 class="text-xl font-semibold mb-8">FORMULÁRIO DE INSCRIÇÃO</h2>
+
+<div class="steps-container">
+
+<div class="desktop-line bg-gray-300"></div>
+<div class="desktop-line bg-blue-600" style="width:50%"></div>
+
+<!-- STEP 1 -->
+<div class="step text-green-600">
+  <div class="circle bg-green-600 text-white"><i data-lucide="check"></i></div>
+  <span>Dados pessoais</span>
+</div>
+
+<!-- STEP 2 -->
+<div class="step text-green-600">
+  <div class="circle bg-green-600 text-white"><i data-lucide="check"></i></div>
+  <span>Contato</span>
+</div>
+
+<!-- STEP 3 ATIVO -->
+<div class="step active">
+  <div class="circle"><i data-lucide="map-pin"></i></div>
+  <span>Endereço</span>
+
+  <!-- FORM MOBILE -->
+  <div class="form-mobile mt-5">
+
+    <form id="formMobileEndereco" class="space-y-4">
+
+      <input id="cepMobile" class="w-full border p-2 rounded" placeholder="CEP *">
+      <input id="ruaMobile" class="w-full border p-2 rounded" placeholder="Rua *">
+
+      <div class="grid grid-cols-2 gap-2">
+        <input id="numeroMobile" class="border p-2 rounded" placeholder="Número *">
+        <input id="complementoMobile" class="border p-2 rounded" placeholder="Complemento">
+      </div>
+
+      <input id="bairroMobile" class="w-full border p-2 rounded" placeholder="Bairro *">
+
+      <div class="grid grid-cols-2 gap-2">
+        <input id="estadoMobile" class="border p-2 rounded" placeholder="Estado *">
+        <input id="cidadeMobile" class="border p-2 rounded" placeholder="Cidade *">
+      </div>
+
+      <button class="bg-blue-600 text-white py-3 rounded w-full">
+        Próximo
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+<!-- OUTROS -->
+<div class="step"><div class="circle"><i data-lucide="briefcase"></i></div><span>Informações</span></div>
+<div class="step"><div class="circle"><i data-lucide="check"></i></div><span>Confirmação</span></div>
+
+</div>
+</div>
+</div>
+
+<!-- FORM DESKTOP -->
+<div class="form-desktop bg-white shadow mt-6">
+<div class="max-w-4xl mx-auto p-8">
+
+<form id="formEndereco" class="space-y-4">
+
+<input id="cep" class="w-full border p-3 rounded" placeholder="CEP *">
+<input id="rua" class="w-full border p-3 rounded" placeholder="Rua *">
+
+<div class="grid grid-cols-2 gap-4">
+  <input id="numero" class="border p-3 rounded" placeholder="Número *">
+  <input id="complemento" class="border p-3 rounded" placeholder="Complemento">
+</div>
+
+<input id="bairro" class="w-full border p-3 rounded" placeholder="Bairro *">
+
+<div class="grid grid-cols-2 gap-4">
+  <input id="estado" class="border p-3 rounded" placeholder="Estado *">
+  <input id="cidade" class="border p-3 rounded" placeholder="Cidade *">
+</div>
+
+<div class="flex gap-3">
+  <button type="button" onclick="voltar()" class="bg-gray-400 text-white py-3 px-6 rounded w-full">
+    Voltar
+  </button>
+
+  <button class="bg-blue-600 text-white py-3 px-6 rounded w-full">
+    Próximo
+  </button>
+</div>
+
+</form>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="text-center text-xs text-gray-500 mt-10 pb-6">
+  <p>Todos os Direitos Reservados ® 2026</p>
+</footer>
+
+<script>
+lucide.createIcons();
+
+/* ========= CEP MASK ========= */
+function maskCEP(v){
+  v = v.replace(/\D/g,"");
+  v = v.replace(/(\d{5})(\d)/,"$1-$2");
+  return v;
+}
+
+/* ========= BUSCA CEP ========= */
+function buscarCEP(valor, rua, bairro, cidade, estado){
+  let v = valor.replace(/\D/g,"");
+  if(v.length !== 8) return;
+
+  fetch(`https://viacep.com.br/ws/${v}/json/`)
+    .then(res => res.json())
+    .then(data => {
+      if(!data.erro){
+        rua.value = data.logradouro;
+        bairro.value = data.bairro;
+        cidade.value = data.localidade;
+        estado.value = data.uf;
+      }
+    });
+}
+
+/* ========= MOBILE ========= */
+cepMobile.addEventListener("input", e => e.target.value = maskCEP(e.target.value));
+cepMobile.addEventListener("blur", () => buscarCEP(cepMobile.value, ruaMobile, bairroMobile, cidadeMobile, estadoMobile));
+
+formMobileEndereco.addEventListener("submit", function(e){
+  e.preventDefault();
+
+  localStorage.setItem("cep", cepMobile.value);
+  localStorage.setItem("rua", ruaMobile.value);
+  localStorage.setItem("numero", numeroMobile.value);
+  localStorage.setItem("complemento", complementoMobile.value);
+  localStorage.setItem("bairro", bairroMobile.value);
+  localStorage.setItem("estado", estadoMobile.value);
+  localStorage.setItem("cidade", cidadeMobile.value);
+
+  window.location.href = "informacoes.html";
+});
+
+/* ========= DESKTOP ========= */
+cep.addEventListener("input", e => e.target.value = maskCEP(e.target.value));
+cep.addEventListener("blur", () => buscarCEP(cep.value, rua, bairro, cidade, estado));
+
+function voltar(){
+  window.location.href = "contato.html";
+}
+
+formEndereco.addEventListener("submit", function(e){
+  e.preventDefault();
+
+  localStorage.setItem("cep", cep.value);
+  localStorage.setItem("rua", rua.value);
+  localStorage.setItem("numero", numero.value);
+  localStorage.setItem("complemento", complemento.value);
+  localStorage.setItem("bairro", bairro.value);
+  localStorage.setItem("estado", estado.value);
+  localStorage.setItem("cidade", cidade.value);
+
+  window.location.href = "informacoes.html";
+});
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"6be5be7d404c4fa3b3260fb0379d9fa9","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'},{'ap':'cpsh-oh'},{'server':'p3plzcpnl508142'},{'dcenter':'p3'},{'cp_id':'10897761'},{'cp_cl':'8'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='../img1.wsimg.com/signals/js/clients/scc-c2/scc-c2.min.js'></script>
+<!-- Mirrored from concursorn.site/endereco.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Mar 2026 11:59:23 GMT -->
+</html>
